@@ -7,7 +7,7 @@ export default function Search(props) {
   const[room, setRoom] = useState([]);
       
     useEffect(() => {
-        fetch('https://astalaat02.github.io/Okko-Hotel/api/okko.json')
+        fetch('https://astalaat02.github.io/okko-hotels/api/okko.json')
         .then((res) => res.json())
         .then((data) => setRoom(data['rooms']));
     }, [])
