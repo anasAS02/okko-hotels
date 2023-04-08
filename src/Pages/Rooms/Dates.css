@@ -1,0 +1,88 @@
+.dates{
+    padding: 25px;
+    text-align: center;
+}
+
+.dates form{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+    align-items: center;
+}
+
+.dates form p{
+    color: #eaa800;
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.dates form input[type= 'date']{
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    margin-left: 20px;
+}
+
+::-webkit-calendar-picker-indicator{
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+    position: absolute;
+}
+
+.dates form .arrival,
+.dates form .departure,
+.dates form .adults{
+    position: relative;
+}
+
+.dates form .arrival::after,
+.dates form .departure::after,
+.dates form .adults::after{
+    content: '';
+    position: absolute;
+    height: 45px;
+    width: 2px;
+    background-color: #eaa800;
+    right: -30px;
+    border-radius: 6px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media(max-width: 900px){
+    .dates form .departure::after, .dates form .adults::after{
+        position: relative;
+    }
+    
+    ::-webkit-calendar-picker-indicator{
+        background: transparent;
+        cursor: pointer;
+        width: 60%;
+        position: absolute;
+    }    
+}
+
+.dates form .adults span{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.dates form .adults span i{
+    cursor: pointer;
+    color: #eaa800;
+}
+
+.dates a{
+    color: gray;
+    transition: 0.4s;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.dates a:hover{
+    color: #eaa800;
+}

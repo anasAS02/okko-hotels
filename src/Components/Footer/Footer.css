@@ -1,0 +1,127 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eee;
+}
+
+.footer .head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media(max-width: 990px){
+    .footer .head{
+        margin: 30px 0;
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+}
+
+.footer .head .info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer .head .info p{
+    color: #666;
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+.footer .head .info a{
+    text-decoration: none;
+    color: #666;
+    transition: 0.4s;
+}
+
+.footer .head .info a:hover{
+    color: #eaa800;
+}
+
+.footer .head .info div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer .head .info div i{
+    border: 1px solid #666;
+    padding: 5px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.footer .head .info div i:hover{
+    background-color: #666;
+    color: white;
+}
+
+.footer .head .logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer .head .logo img{
+    width: 20%;
+    margin-bottom: 10px;
+}
+
+.footer .head .logo img:last-of-type{
+    width: 7%;
+}
+
+.footer .head .logo p{
+    font-size: 16px;
+    color: #666;
+}
+
+.footer .head .links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media(max-width: 990px){
+    .footer .head .links{
+        display: none;
+    }
+}
+
+.footer .head .links p{
+    color: #666;
+    font-size: 20px;
+}
+
+.footer .head .links a{
+    text-decoration: none;
+    color: #666;
+    transition: 0.4s;
+}
+
+.footer .head .links a:hover{
+    color: #eaa800;
+}
+
+.footer .text{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .text a{
+    text-decoration: none;
+    color: #666;
+    transition: 0.4s;
+    font-size: 16px;
+}
+
+.footer .text a:hover{
+    color: #eaa800;
+}

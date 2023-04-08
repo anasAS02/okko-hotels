@@ -1,0 +1,280 @@
+.room{
+    padding-top: 120px;
+}
+
+/* Start Dates */
+
+.dates form{
+    margin-left: 100px;
+}
+
+/* End Dates */
+
+/* Start Title */
+
+.room .title{
+    padding-top: 30px;
+    text-align: center;
+}
+
+.room .title h3{
+    font-size: 30px;
+    color: #6f451e;
+}
+
+.room .title img{
+    width: 5%;
+}
+
+.room .title p{
+    margin-top: 20px;
+    color: #666;
+    text-transform: uppercase;
+}
+
+/* End Title */
+
+/* Start Discover */
+
+.discover{
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.discover .text{
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.discover .text p{
+    text-align: left;
+}
+
+.discover .text span{
+    color: #eaa800;
+}
+
+.discover .react-multi-carousel-list{
+    width: 100%;
+}
+
+/* End Discover */
+
+/* Start Features */
+
+.features{
+    padding-top: 25px;
+    text-align: center;
+}
+
+.features .head h2{
+    color: #666;
+}
+
+.features .head p{
+    color: #eaa800;
+    text-transform: uppercase;
+}
+
+.features .con{
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.features .con span{
+    display: flex;
+    flex-direction: column;
+    color: #666;
+    font-size: 14px;
+}
+
+.features .con span i{
+    font-size: 25px;
+    margin-bottom: 12px;
+    color: #eaa800;
+}
+
+/* End Features */
+
+/* Start Details */
+
+.details{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+    padding: 25px;
+}
+
+.details .react-multi-carousel-list{
+    width: 100%;
+}
+
+.details .info{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 30px;
+}
+
+.details .info h3{
+    color: #666;
+}
+
+.details .info span{
+    color: #eaa800;
+    text-transform: uppercase;
+}
+
+.details .info p{
+    color: #666;
+}
+
+.details .info a{
+    text-decoration: none;
+    color: white;
+    background-color: #eaa800;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    transition: 0.4s;
+    width: fit-content;
+}
+
+.details .info a:hover{
+    background-color: #666;
+}
+
+/* End Details */
+
+/* Start Booking */
+
+.booking{
+    background-image: url('../../imgs/payment.png');
+    background-size: cover;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 6px;
+    text-align: center;
+    display: none;
+    transition: 0.4s;
+}
+
+.booking.active{
+    display: block;
+}
+
+.booking form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.booking form input,
+.booking form button{
+    width: fit-content;
+    margin: 5px auto;
+    border: none;
+    outline: none;
+    padding: 7px;
+    color: black;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.booking form input{
+    text-align: left;
+}
+
+.booking form button{
+    color: white;
+    transition: 0.4s;
+    background-color: black;
+}
+
+.booking form button:hover{
+    background-color: rgba(245, 245, 220, 0.809);
+    color: black;
+}
+
+.booking form p{
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 6px;
+    width: fit-content;
+}
+
+.done{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    /* height: 100vh; */
+    padding: 15px;
+    background-color: white;
+}
+
+.done i{
+    margin-left: 12px;
+    font-size: 25px;
+    color: rgb(0, 212, 0);
+}
+
+/* End Booking */
+
+/* Start Welcome */
+
+.welcome{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.welcome button{
+    margin-top: 15px;
+    outline: none;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #eaa800;
+    color: white;
+    transition: 0.4s;
+}
+
+.welcome button:hover{
+    background-color: #eaa800b7;
+}
+
+/* End Welcome */
+
+/* Start Responsive */
+
+@media(max-width: 900px){
+    .details{
+        flex-direction: column;
+    }
+
+    .details img{
+        width: 100%;
+    }
+
+    .dates form{
+        margin-left: 0px;
+    }
+
+    .footer{
+        width: 101%;
+    }
+}
+
+/* End Responsive */
