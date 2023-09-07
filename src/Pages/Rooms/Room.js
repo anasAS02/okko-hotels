@@ -19,7 +19,7 @@ export default function Room(props){
     const[paymentDone, setPaymentDone] = useState(false);
 
     useEffect(() => {
-        fetch('https://astalaat02.github.io/api/okko.json')
+        fetch('https://anasAS02.github.io/api/okko.json')
         .then((res) => res.json())
         .then((data) => setRoom(data['rooms'][props.id]));
     }, [])
