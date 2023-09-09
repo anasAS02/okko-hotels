@@ -1,26 +1,22 @@
-import Table from 'react-bootstrap/Table';
 import './MyBooking.css';
+import Header from '../../Components/Header/Header';
+import Table from 'react-bootstrap/Table';
 import { useContext } from 'react';
 import{loginContext} from '../../App';
-
 import { Link } from 'react-router-dom';
 
-
 export default function MyBooking(){
+const login = useContext(loginContext);
 
+const hotel = JSON.parse(window.localStorage.getItem('hotel'));
+const adults = JSON.parse(window.localStorage.getItem('adults'));
+const arrival = JSON.parse(window.localStorage.getItem('arrival'));
+const departure = JSON.parse(window.localStorage.getItem('departure'));
+const totalPrice = JSON.parse(window.localStorage.getItem('totalPrice'));
 
-    const hotel = JSON.parse(window.localStorage.getItem('hotel'));
-    const adults = JSON.parse(window.localStorage.getItem('adults'));
-    const arrival = JSON.parse(window.localStorage.getItem('arrival'));
-    const departure = JSON.parse(window.localStorage.getItem('departure'));
-    const totalPrice = JSON.parse(window.localStorage.getItem('totalPrice'));
-
-
-    const login = useContext(loginContext);
-
-
-    return(
+return(
     <div className='my-booking'>
+        <Header />
         {login ?
         <Table striped bordered hover variant="dark">
             <thead>
@@ -51,5 +47,5 @@ export default function MyBooking(){
         </div>
     }
     </div>
-    )
+)
 }

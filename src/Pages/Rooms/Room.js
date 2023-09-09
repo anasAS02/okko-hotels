@@ -133,8 +133,8 @@ return(
             </div>
             :
             <form onSubmit={handleCheckPayment}>
-                <input type='text' placeholder='your visa' value={visaInput} onChange={(e) => setVisaInput(e.target.value)} ></input>
-                <input type='text' placeholder='PIN' value={pinInput} onChange={(e) => setPinInput(e.target.value)}></input>
+                <input required type='text' placeholder='your visa' value={visaInput} onChange={(e) => setVisaInput(e.target.value)} ></input>
+                <input required type='text' placeholder='PIN' value={pinInput} onChange={(e) => setPinInput(e.target.value)}></input>
                 <p>Form : <span>{arrival}</span></p>
                 <p>To : <span>{departure}</span></p>
                 <p>Adults : <span>{adult}</span></p>

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import Card from './Card';
-
 import './Search.css';
+import Card from './Card';
+import React, { useState, useEffect } from 'react';
+
 
 export default function Search(props) {
   const[room, setRoom] = useState([]);
@@ -22,22 +22,22 @@ export default function Search(props) {
     room.CityName.toLowerCase().includes(searchTerm.toLowerCase())
   );
   
-  return (
-    <div className={`box-shearch${props.search ? " active" : ""}`}>
-      <input
-        type="text"
-        placeholder="Search"
-        value={searchTerm}
-        onChange={handleChange}
-      />
-      <div className='search-bar'>
-      <p>Your Search :</p>
-      </div>
-      <div className="card-container">
-        {filterRoom.map((room, index) => (
-          <Card key={index} title={room.CityName} image={room.imgOne} />
-        ))}
-      </div>
+return (
+  <div className={`box-shearch${props.search ? " active" : ""}`}>
+    <input
+      type="text"
+      placeholder="Search"
+      value={searchTerm}
+      onChange={handleChange}
+    />
+    <div className='search-bar'>
+    <p>Your Search :</p>
     </div>
-  );
+    <div className="card-container">
+      {filterRoom.map((room, index) => (
+        <Card key={index} title={room.CityName} image={room.imgOne} />
+      ))}
+    </div>
+  </div>
+);
 };
