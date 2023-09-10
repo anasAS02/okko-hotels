@@ -27,45 +27,45 @@ export const setLoginStateContext = createContext();
 
 function App() {
   
-  const [loginState, setLoginState] = useState(false);
+const [loginState, setLoginState] = useState(false);
 
-  useEffect(() => {
-    const isUserLoggedIn = localStorage.getItem('isUserLoggedIn');
-    if (isUserLoggedIn) {
-      setLoginState(true);
-    }
-  }, [setLoginState]);
+useEffect(() => {
+  const isUserLoggedIn = localStorage.getItem('isUserLoggedIn');
+  if (isUserLoggedIn) {
+    setLoginState(true);
+  }
+}, [setLoginState]);
 
-  return (
-    <div className="App">
+return (
+  <div className="App">
 
-      <loginContext.Provider value={loginState}>
-      <setLoginStateContext.Provider value={setLoginState}>
-    
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/Room' element={<Room />} />
-        <Route path='/Bayonne' element={<Bayonne />} />
-        <Route path='/Cannes' element={<Cannes />} />
-        <Route path='/Grenoble' element={<Grenoble />} />
-        <Route path='/Lille' element={<Lille />} />
-        <Route path='/Lyon' element={<Lyon />} />
-        <Route path='/Nantes' element={<Nantes />} />
-        <Route path='/Nice' element={<Nice />} />
-        <Route path='/Gare' element={<Gare />} />
-        <Route path='/Defense' element={<Defense />} />
-        <Route path='/Versailles' element={<Versailles />} />
-        <Route path='/Rueil' element={<Rueil />} />
-        <Route path='/Strasbourg' element={<Strasbourg />} />
-        <Route path='/Toulon' element={<Toulon />} />
-        <Route path='/Login' element={<Login />} />
-        <Route path='/SignUp' element={<SignUp />} />
-        <Route path='/MyBooking' element={<MyBooking />} />
-      </Routes>
-    </setLoginStateContext.Provider>
-    </loginContext.Provider>
-    </div>
-  );
+    <loginContext.Provider value={loginState}>
+    <setLoginStateContext.Provider value={setLoginState}>
+  
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/Room' element={<Room />} />
+      <Route path='/Bayonne' element={<Bayonne />} />
+      <Route path='/Cannes' element={<Cannes />} />
+      <Route path='/Grenoble' element={<Grenoble />} />
+      <Route path='/Lille' element={<Lille />} />
+      <Route path='/Lyon' element={<Lyon />} />
+      <Route path='/Nantes' element={<Nantes />} />
+      <Route path='/Nice' element={<Nice />} />
+      <Route path='/Gare' element={<Gare />} />
+      <Route path='/Defense' element={<Defense />} />
+      <Route path='/Versailles' element={<Versailles />} />
+      <Route path='/Rueil' element={<Rueil />} />
+      <Route path='/Strasbourg' element={<Strasbourg />} />
+      <Route path='/Toulon' element={<Toulon />} />
+      <Route path='/Login' element={<Login />} />
+      <Route path='/SignUp' element={<SignUp />} />
+      <Route path='/MyBooking' element={<MyBooking />} />
+    </Routes>
+  </setLoginStateContext.Provider>
+  </loginContext.Provider>
+  </div>
+);
 }
 
 export default App;

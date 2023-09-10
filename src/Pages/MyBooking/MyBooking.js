@@ -7,12 +7,7 @@ import { Link } from 'react-router-dom';
 
 export default function MyBooking(){
 const login = useContext(loginContext);
-
-const hotel = JSON.parse(window.localStorage.getItem('hotel'));
-const adults = JSON.parse(window.localStorage.getItem('adults'));
-const arrival = JSON.parse(window.localStorage.getItem('arrival'));
-const departure = JSON.parse(window.localStorage.getItem('departure'));
-const totalPrice = JSON.parse(window.localStorage.getItem('totalPrice'));
+const reservations = JSON.parse(window.localStorage.getItem('reservations'));
 
 return(
     <div className='my-booking'>
@@ -22,7 +17,7 @@ return(
             <thead>
                 <tr>
                 <th>#</th>
-                <th>Hotel</th>
+                <th>City</th>
                 <th>Adults</th>
                 <th>Arrival date</th>
                 <th>Departure time</th>
@@ -30,14 +25,16 @@ return(
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <td>1</td>
-                <td>{hotel}</td>
-                <td>{adults}</td>
-                <td>{arrival}</td>
-                <td>{departure}</td>
-                <td>{totalPrice} €</td>
-                </tr>
+                {reservations && reservations.map((booking, index) => (
+                    <tr key={index}>
+                        <td>{++index}</td>
+                        <td>{booking['city']}</td>
+                        <td>{booking['adults']}</td>
+                        <td>{booking['arrival']}</td>
+                        <td>{booking['departure']}</td>
+                        <td>{booking['totalPrice']} €</td>
+                    </tr>
+                ))}
             </tbody>
         </Table> 
     : 

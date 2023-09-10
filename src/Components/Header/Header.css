@@ -62,22 +62,29 @@
     }
 }
 
-.header .end a{
+.header .end a,
+.logoutBtn{
     text-decoration: none;
     color: gray;
     transition: 0.4s;
     font-size: 18px;
 }
 
-.header .end a:hover{
+.header .end a:hover,
+.logoutBtn:hover{
     color: #eaa800;
+}
+
+.logoutBtn{
+    /* border: none; */
 }
 
 .header .end a:first-of-type{
     white-space: nowrap;
 }
 
-.header .end a:nth-child(2){
+.header .end a:nth-child(2),
+.logoutBtn{
     color: white;
     background-color: #eaa800;
     padding: 7px 30px;
@@ -85,7 +92,8 @@
     border: 1px solid #eaa800;
 }
 
-.header .end a:nth-child(2):hover{
+.header .end a:nth-child(2):hover,
+.logoutBtn:hover{
     background-color: white;
     color: #eaa800;
 }

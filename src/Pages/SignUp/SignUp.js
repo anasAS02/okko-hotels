@@ -2,17 +2,16 @@ import './SignUp.css';
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 import { useState, useContext } from "react";
-import{loginContext, setLoginStateContext} from '../../App';
+import{loginContext} from '../../App';
 export default function Login(){
     
 const[accept, setAccept] = useState(false);
 const[user, setUser] = useState(false);
 const login = useContext(loginContext);
-const setLogin = useContext(setLoginStateContext);
 
 function logout(){
-    window.localStorage.removeItem('email');
-    setLogin(false);
+    window.localStorage.removeItem('isUserLoggedIn');
+    window.location.pathname = '/';
 }
 
 const[form, setForm] = useState({
@@ -32,8 +31,8 @@ function handleFormChange(e) {
 function submit(e){
     e.preventDefault();
     setAccept(true);
-    if(form.firstName !== '' && form.lastName !== '' && form.email == form.emailConfirm 
-    && form.password == form.passwordConfirm && form.country !== ''){
+    if(form.firstName !== '' && form.lastName !== '' && form.email === form.emailConfirm 
+    && form.password === form.passwordConfirm && form.country !== ''){
     setUser(true)
 }else{
     setUser(false);
@@ -55,7 +54,9 @@ const newUser = {
     }else{
         existingUsers.push(newUser);
         localStorage.setItem('users', JSON.stringify(existingUsers));
-        window.location.pathname = '/';
+        setTimeout(() => {
+            window.location.pathname = '/login';
+        }, 1500)
     }
 }
 }

@@ -6,7 +6,6 @@ import SliderShop from '../../Components/Slider/SliderShop';
 import SliderNews from '../../Components/Slider/SliderNews';
 import SliderClub from '../../Components/Slider/SliderClub';
 import Footer from '../../Components/Footer/Footer';
-
 import { Link } from "react-router-dom";
 
 export default function Home(){

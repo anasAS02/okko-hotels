@@ -42,8 +42,8 @@ const[room, setRoom] = useState([]);
 const[arrival, setArrival] = useState(getTodayDate());
 const[departure, setDeparture] = useState(getMinDepartureDate(arrival));
 const[adult, setAdult] = useState(1);
-const [visaInput, setVisaInput] = useState('');
-const [pinInput, setPinInput] = useState('');
+const[visaInput, setVisaInput] = useState('');
+const[pinInput, setPinInput] = useState('');
 const[payment, setPayment] = useState(false);
 const[paymentDone, setPaymentDone] = useState(false);
 
@@ -75,19 +75,26 @@ function paymentStart(){
     setPayment(true);
 }
 
+const booking = {
+    city: room.CityName,
+    adults: adult,
+    arrival: arrival,
+    departure: departure,
+    totalPrice: totalPrice
+};
+
+const existingReservations = JSON.parse(window.localStorage.getItem('reservations')) || [];
+
 const handleCheckPayment = (e) => {
         e.preventDefault();
         if(login){
             if (visaInput.length === 16 && /^\d+$/.test(visaInput) && pinInput.length === 4 && /^\d+$/.test(pinInput)) {
-            window.localStorage.setItem('hotel', JSON.stringify(room.title));
-            window.localStorage.setItem('adults', JSON.stringify(adult));
-            window.localStorage.setItem('arrival', JSON.stringify(arrival));
-            window.localStorage.setItem('departure', JSON.stringify(departure));
-            window.localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
+            existingReservations.push(booking);
+            window.localStorage.setItem('reservations', JSON.stringify(existingReservations));
             setPaymentDone(true);
             setTimeout(() => {
                 window.location.pathname = '/MyBooking';
-            }, 3000)
+            }, 1500)
         }
         else{
             alert('The visa number must consist of 16 digits and the PIN code must be 4 digits');

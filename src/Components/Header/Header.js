@@ -4,13 +4,18 @@ import './Search.css';
 import Search from '../Search/Search';
 import Logo from '../../imgs/logo.png';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import{loginContext} from '../../App';
 
 export default function Header() {
-
 const [isMenuActive, setIsMenuActive] = useState(false);
 const [isSearchActive, setIsSearchActive] = useState(false);
+const login = useContext(loginContext);
 
+function logout(){
+    localStorage.removeItem('isUserLoggedIn');
+    window.location.pathname = '/';
+}
 
 function activeMenu(){
   setIsMenuActive(true);
@@ -121,7 +126,11 @@ return (
 
       <div className='end'>
           <Link to='/MyBooking'>My booking</Link>
-          <Link to=''>Book</Link>
+          {login ? 
+          <button className='logoutBtn' onClick={logout}>Logout</button>
+          :
+          <Link to='/login'>Login</Link>
+          }
           <Link>EN
             <span className='languages'>
               <p className='fr'>Français</p>

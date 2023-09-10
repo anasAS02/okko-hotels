@@ -29,9 +29,7 @@ function loginFunction(e){
             localStorage.setItem('isUserLoggedIn', true);
             setLogin(true);
             window.location.pathname = '/';
-            localStorage.setItem('email', form.email);
         }else{
-            setLogin(false);
             alert('The Password or Email is incorrect');
         }
     }else{
@@ -40,8 +38,8 @@ function loginFunction(e){
 }
 
 function logout(){
-    window.localStorage.removeItem('email');
-    setLogin(false);
+    window.localStorage.removeItem('isUserLoggedIn');
+    window.location.pathname = '/';
 }
 
 return(
@@ -59,8 +57,8 @@ return(
                 <div className='login'>
                 <form onSubmit={loginFunction}>
                     <p>With your account</p>
-                    <input type='email' placeholder='E-mail address' name='email' value={form.email} onChange={handleFormChange}/>
-                    <input type='password' placeholder='Password' name='password' value={form.password} onChange={handleFormChange}/>
+                    <input required type='email' placeholder='E-mail address' name='email' value={form.email} onChange={handleFormChange}/>
+                    <input required type='password' placeholder='Password' name='password' value={form.password} onChange={handleFormChange}/>
                     <span>
                         <Link to=''>Forgot Password ?</Link>
                         <input type='submit' value='Sign In'></input>
