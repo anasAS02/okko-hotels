@@ -71,15 +71,12 @@ useEffect(() => {
 }, [isLoggedIn, setIsLoggedIn]);
 
 const [logoWidth, setLogoWidth] = useState("35%");
-const [saleHide, setSaleHide] = useState("");
 
 const handleScroll = () => {
   if (window.scrollY > 250) {
     setLogoWidth("20%");
-    setSaleHide("none");
   } else {
     setLogoWidth("35%");
-    setSaleHide("block");
   }
 };
 
@@ -99,12 +96,14 @@ return (
       </div>
       
   <div className='header'>
-      <div className='start'>
           <div className='menu'>
             <i className="fa-solid fa-bars" onClick={activeMenu}></i>
+            {isSearchActive ? 
+            <i class="fa-solid fa-xmark" onClick={() => setIsSearchActive(false)}></i>
+            : 
             <i className="fa-solid fa-magnifying-glass" onClick={activeSearch}></i>
+            }
           </div>
-        </div>
 
       <div className='logo'>
         <Link to='/'>
@@ -112,7 +111,7 @@ return (
         </Link>
       </div>
 
-      <div className='end'>
+      <div className='header-buttons'>
           <Link to='/MyBooking'>My booking</Link>
           {isLoggedIn ? 
           <button className='button' onClick={handleLogout}>Logout</button>
@@ -120,7 +119,6 @@ return (
           <Link to='/login' className='button'>Login</Link>
           }
       </div>
-  <p className='sale' style={{ display: saleHide }}><span>-10%</span> off offers and exclusive rates available</p>
 </div>
 </span>
 );
