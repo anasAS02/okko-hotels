@@ -105,7 +105,7 @@ return (
           <div className='menu'>
             <i className="fa-solid fa-bars" onClick={activeMenu}></i>
             {isSearchActive ? 
-            <i class="fa-solid fa-xmark" onClick={() => setIsSearchActive(false)}></i>
+            <i className="fa-solid fa-xmark" onClick={() => setIsSearchActive(false)}></i>
             : 
             <i className="fa-solid fa-magnifying-glass" onClick={activeSearch}></i>
             }
