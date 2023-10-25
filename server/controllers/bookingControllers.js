@@ -30,10 +30,10 @@ const bookRoom = asyncWrapper(
 
 const getMyBookings = asyncWrapper(
     async(req, res) => {
-        const email = req.body;
-        console.log(req.body)
-        console.log(email)
+        const email = req.body.email;
         const bookings = await Booking.find({email: email});
+        console.log('email', email)
+        console.log('req.body', req.body)
         res.status(200).json({status: httpStatusText.SUCCESS, data: bookings})
     }
 )

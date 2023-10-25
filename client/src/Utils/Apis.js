@@ -7,5 +7,6 @@ export const SEARCH_ROOM = `${BASE_URL}rooms/search?keyword=`;
 export const REGISTER = `${BASE_URL}auth/register`;
 export const LOGIN = `${BASE_URL}auth/login`;
 
-export const BOOKING = `${BASE_URL}room/booking`;
-export const CLIENT_ID = `${BASE_URL}room/clientId`;
+export const BOOKING = `${BASE_URL}/booking`;
+export const MY_BOOKINGS = `${BASE_URL}/myBookings`;
+export const CLIENT_ID = `${BASE_URL}/clientId`;
