@@ -1,0 +1,93 @@
+/* Start List */
+.list{
+    height: 102vh;
+    display: flex;
+    z-index: 100000;
+    position: fixed;
+    top: 130px;
+    transform: translateX(-100%);
+    transition: 0.5s;
+    margin-top: -110px;
+}
+
+.list.active{
+    transform: translateX(0);
+    background-color: white;
+}
+
+.list .text{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.list .text p{
+    color: #eaa800;
+    margin: 10px 0 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.list .text a{
+    color: #666;
+    text-decoration: none;
+    transition: 0.4s;
+    font-size: 18px;
+}
+
+.list .text a:hover{
+    color: #eaa800;
+}
+
+/* End List */
+
+/* Start List con*/
+.list .list-con{
+    background-color: white;
+    position: relative;
+}
+
+.list .list-con img{
+    padding-top: 25px;
+    width: 35%;
+}
+
+.list .list-con i.close{
+    font-size: 30px;
+    color: #eaa800;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 20px;
+}
+
+.list .list-con .text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.list .list-con .sale{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.list .list-con .sale i{
+    color: #666;
+    font-size: 30px;
+    transform: rotate(45deg);
+}
+
+.list .list-con .sale a{
+    text-decoration: none;
+    color: #eaa800;
+    font-size: 22px;
+}
+
+/* End List con */
