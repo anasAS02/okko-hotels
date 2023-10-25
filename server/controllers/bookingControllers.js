@@ -28,6 +28,15 @@ const bookRoom = asyncWrapper(
     }
 )
 
+const getMyBookings = asyncWrapper(
+    async(req, res) => {
+        const email = req.body;
+        console.log(req.body)
+        console.log(email)
+        const bookings = await Booking.find({email: email});
+        res.status(200).json({status: httpStatusText.SUCCESS, data: bookings})
+    }
+)
 
 const getClientId = asyncWrapper(
     async(req, res) => {
@@ -38,5 +47,6 @@ const getClientId = asyncWrapper(
 
 module.exports = {
     bookRoom,
+    getMyBookings,
     getClientId,
 };

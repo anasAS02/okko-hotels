@@ -1,8 +1,9 @@
 import axios from "axios";
 import Cookies from 'js-cookie';
 
-export const handleAuth = async (event, url, form) => {
+export const handleAuth = async (event, url, form, setUpdates) => {
     event.preventDefault();
+    setUpdates('loading');
     try{
         const res = await axios.post(url, form);
         const token = res.data.data.token;
@@ -14,12 +15,12 @@ export const handleAuth = async (event, url, form) => {
         Cookies.set('role', role);
         Cookies.set('firstName', firstName);
         Cookies.set('email', email);
-        
+        setUpdates(null)
         window.location.pathname = '/';
     }catch(err){
         const errorMessage = err.response?.data?.message || 'An error occurred.';
         console.log(errorMessage)
-        alert(errorMessage)
+        setUpdates(errorMessage)
     }
 }
 

@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import "./Footer.css";
 import { Link } from 'react-router-dom';
 import { getRooms } from "../../Utils/Rooms/GetRooms";
+import { PacmanLoader } from "react-spinners";
+import { useUpdates } from "../../Utils/Rooms/UpdatesContext";
 
 export default function Header(){
     const [rooms, setRooms] = useState([]);
+    const {updates, setUpdates} = useUpdates();
     useEffect(() => {
-        getRooms()
+        getRooms(setUpdates)
         .then((data) => setRooms(data.data));
     }, [])
 
@@ -15,7 +18,12 @@ return(
     <div className='head'>
         <span className='links'>
             <p>OUR HOTELS</p>
-            {rooms.slice(0, 7).map((room) => <Link to={`/Room/${room.CityName}`}>{room.CityName}</Link>)}
+            {
+              updates == 'loading' ?
+              <PacmanLoader color="rgba(199, 192, 47, 1)" />  
+              :
+              rooms.slice(0, 7).map((room) => <Link to={`/Room/${room.CityName}`}>{room.CityName}</Link>)
+            }
         </span>
         <span className='logo'>
             <img src={require('../../imgs/logo.png')}></img>
@@ -46,7 +54,12 @@ return(
         </span>
         <span className='links'>
             <p>OUR HOTELS</p>
-            {rooms.slice(7).map((room) => <Link to={`/Room/${room.CityName}`}>{room.CityName}</Link>)}
+            {
+              updates == 'loading' ?
+              <PacmanLoader color="rgba(199, 192, 47, 1)" />    
+            :
+              rooms.slice(7).map((room) => <Link to={`/Room/${room.CityName}`}>{room.CityName}</Link>)
+            }
         </span>
     </div>
 </div>

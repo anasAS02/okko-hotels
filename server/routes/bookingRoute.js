@@ -5,6 +5,9 @@ const bookingControllers = require('../controllers/bookingControllers');
 router.route('/booking')
         .post(bookingControllers.bookRoom);
 
+router.route('/myBookings')
+        .get(bookingControllers.getMyBookings);
+
 router.route('/clientId')
         .get(bookingControllers.getClientId);
 

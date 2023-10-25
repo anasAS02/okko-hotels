@@ -21,7 +21,7 @@ mongoose.connect(url).then(() => {
 
 app.use('/okko/rooms', roomsRoute);
 app.use('/okko/auth', authRoute);
-app.use('/okko/room', bookingRoute);
+app.use('/okko/rooms', bookingRoute);
 
 app.all('*', (req, res) => {
     res.status(404).json({status: 'Error', message: 'this resource is not available'});

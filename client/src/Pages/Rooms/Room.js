@@ -7,7 +7,7 @@ import Footer from '../../Components/Footer/Footer';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getRoom } from '../../Utils/Rooms/GetRoom';
-import { useBooking } from '../../Utils/Rooms/BookingContext';
+import { useBooking } from '../../Utils/Rooms/UpdatesContext';
 import Cookies from 'js-cookie';
 import PaypalCheckoutButton from '../PayPal/PaypalCheckoutButton';
 
@@ -15,6 +15,7 @@ export default function Room(){
 
 const { CityName } = useParams();
 const[room, setRoom] = useState([]);
+const[booking, setBooking] = useState([]);
 const firstName = Cookies.get('firstName');
 const email = Cookies.get('email');
 
@@ -79,8 +80,6 @@ const bookingDetails = {
     numberOfDays: days,
     bookingAmount: amount
 };
-
-const { booking, setBooking } = useBooking();
 
 return(
     <div className='room'>

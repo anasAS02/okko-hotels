@@ -4,14 +4,14 @@ const appError = require('../utils/appError');
 const asyncWrapper = require('../middlewares/asyncWrapper');
 
 const getAllRooms = asyncWrapper(
-    async(req, res, next) => {
+    async(req, res) => {
         const rooms = await Room.find();
         res.status(200).json({status: httpStatusText.SUCCESS, data: rooms});
     }
 )
 
 const getRoom = asyncWrapper(
-    async(req, res, next) => {
+    async(req, res) => {
         const CityName = req.params.CityName;
         const room = await Room.find({CityName: CityName});
         res.status(200).json({status: httpStatusText.SUCCESS, data: room});

@@ -4,9 +4,11 @@ import { useState } from "react";
 import { handleAuth } from '../../Utils/Auth/Auth';
 import { REGISTER } from '../../Utils/Apis';
 import { Link } from 'react-router-dom';
+import { useUpdates } from '../../Utils/Rooms/UpdatesContext';
+import { FadeLoader } from 'react-spinners';
 
 export default function Login(){
-
+const { updates, setUpdates } = useUpdates();
 const[form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -30,7 +32,11 @@ return(
             <input required type='email' placeholder='alex@example.com' name='email' value={form.email} onChange={handleFormChange}  />
             <input required type='password' placeholder='Password' name='password' value={form.password} onChange={handleFormChange}  />
             <input required type='text' placeholder='country' name='country' value={form.country} onChange={handleFormChange} />
-            <button className='register-btn' onClick={(event) => handleAuth(event, REGISTER, form)}>Register</button>
+            {updates == 'loading' ?
+            <FadeLoader color="#dbdb2b"/>:
+            <button className='register-btn' onClick={(event) => handleAuth(event, REGISTER, form, setUpdates)}>Register</button>
+            }
+            {updates && updates !== 'loading' && <p className='errMsg'>something is wrong</p>}
             <span>Do you have an account? <Link to='/login'>Login</Link></span>
         </div>
     </>

@@ -9,6 +9,8 @@ import { getRooms } from '../../Utils/Rooms/GetRooms';
 import { useAuth } from '../../Utils/Auth/AuthContext';
 import { handleLogout } from '../../Utils/Auth/Auth';
 import Cookies from 'js-cookie';
+import { useUpdates } from '../../Utils/Rooms/UpdatesContext';
+import { PacmanLoader } from 'react-spinners';
 
 export default function Header() {
 const [isMenuActive, setIsMenuActive] = useState(false);
@@ -17,6 +19,7 @@ const [rooms, setRooms] = useState([]);
 const token = Cookies.get('token');
 
 const {isLoggedIn, setIsLoggedIn} = useAuth();
+const {updates, setUpdates} = useUpdates();
 
 function activeMenu(){
   setIsMenuActive(true);
@@ -33,7 +36,7 @@ function activeSearch(){
 }
 
 useEffect(() => {
-  getRooms()
+  getRooms(setUpdates)
   .then((data) => setRooms(data.data));
 
   if(token){
@@ -89,6 +92,9 @@ return (
               <i className="fa-solid fa-rectangle-xmark close" onClick={deActiveMenu}></i>
               <div className='text'>
               {
+              updates == 'loading' ?
+              <PacmanLoader color="rgba(199, 192, 47, 1)" /> 
+              :
               rooms.map((room) => <Link key={room._id} to={`/Room/${room.CityName}`}>{room.CityName}</Link>)
               }
               </div>

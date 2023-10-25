@@ -33,3 +33,11 @@
 .login-btn:hover{
     background-color: #eaa800cf;
 }
+
+.errMsg{
+    padding: 8px;
+    color: red;
+    font-size: 14px;
+    background-color: black;
+    border-radius: 6px;
+}

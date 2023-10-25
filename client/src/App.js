@@ -6,14 +6,13 @@ import SignUp from './Pages/SignUp/SignUp';
 import MyBooking from './Pages/MyBooking/MyBooking'
 import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './Utils/Auth/AuthContext';
-import { BookingProvider } from './Utils/Rooms/BookingContext';
-import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+import { UpdatesProvider } from './Utils/Rooms/UpdatesContext';
 
 function App() {
 return (
   <div className="App">
     <AuthProvider>
-      <BookingProvider>
+      <UpdatesProvider>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/Room/:CityName' element={<Room />} />
@@ -21,7 +20,7 @@ return (
           <Route path='/SignUp' element={<SignUp />} />
           <Route path='/MyBooking' element={<MyBooking />} />
         </Routes>
-      </BookingProvider>
+      </UpdatesProvider>
   </AuthProvider>
   </div>
 );
