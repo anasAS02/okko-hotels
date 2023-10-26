@@ -1,3 +1,1 @@
-# Built by: (React JS, CSS).
-
-# Libraries: Font Awesome.
+# Built by: (React JS, MongoDB, NodeJS, ExpressJS).
