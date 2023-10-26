@@ -690,6 +690,13 @@ a.buy:hover::after{
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     gap: 15px;
     cursor: pointer;
+    position: relative;
+    transform: translateX(-100%);
+    transition: 0.5s;
+}
+
+.follow .imgs.active{
+    transform: translateY(0);
 }
 
 .follow .imgs img{

@@ -7,8 +7,18 @@ import SliderNews from '../../Components/Slider/SliderNews';
 import SliderClub from '../../Components/Slider/SliderClub';
 import Footer from '../../Components/Footer/Footer';
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Home(){
+    const [imgs, setImgs] = useState(false);
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= 3800) {
+            setImgs(true);
+        }else{
+            setImgs(false);
+        }
+    });
+
 return(
 <div className="home">
     <Header />
@@ -55,7 +65,7 @@ return(
                 <p>design by catoir</p>
             </div>
         </div>
-        <Link to=''>see the Rooms</Link>
+        <Link to='/'>see the Rooms</Link>
     </div>
 
     <div className='club'>
@@ -133,7 +143,7 @@ return(
             <p>Follow Us</p>
             <Link target='_blank' to='https://www.instagram.com/okkohotels/'>@OKKOHOTELS</Link>
         </div>
-        <div className='imgs'>
+        <div className={`imgs${imgs ? ' active' : ''}`}>
             <img src={require('../../imgs/1-follow.jpg')} alt=''></img>
             <img src={require('../../imgs/2-follow.jpg')} alt=''></img>
             <img src={require('../../imgs/3-follow.jpg')} alt=''></img>

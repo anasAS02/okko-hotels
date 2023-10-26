@@ -3,7 +3,7 @@ import "./Footer.css";
 import { Link } from 'react-router-dom';
 import { getRooms } from "../../Utils/Rooms/GetRooms";
 import { PacmanLoader } from "react-spinners";
-import { useUpdates } from "../../Utils/Rooms/UpdatesContext";
+import { useUpdates } from "../../Utils/UpdatesContext";
 
 export default function Header(){
     const [rooms, setRooms] = useState([]);

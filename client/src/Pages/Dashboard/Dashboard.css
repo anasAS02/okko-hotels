@@ -1,0 +1,266 @@
+/* Start Nav */
+.dashboard nav{
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashboard nav button,
+.dashboard nav a{
+    padding: 10px;
+    background-color: transparent;
+    color: black;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+@media(max-width: 767px){
+    .dashboard nav button,
+    .dashboard nav a{
+        font-size: 10px;
+    }
+}
+
+.dashboard nav button:hover,
+.dashboard nav a:hover,
+.dashboard nav button.active{
+    color: rgb(179, 179, 22);
+}
+
+.dashboard nav a{
+    text-decoration: none;
+}
+
+/* End Nav */
+
+/* Start Details */
+.all-details{
+    margin-top: 30px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.all-details .box{
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    border-top-right-radius: 60px;
+    background-color: yellow;
+    color: black;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.all-details .box:hover{
+    background-color: black;
+    color: white;
+}
+
+.all-details .box h2{
+    margin-top: 30px;
+}
+
+.all-details .box h5{
+    text-align: right;
+    font-weight: bold;
+}
+/* End Details */
+
+/* Start Rooms */
+.all-rooms,
+.all-bookings{
+    margin-top: 30px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px;
+}
+
+.all-rooms span,
+.all-bookings span{
+    padding: 10px;
+    border-radius: 6px;
+    width: 100%;
+    transition: 0.3s;
+    background-color: #c7c2c268;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.all-rooms span:hover,
+.all-bookings span:hover{
+    background-color: #c7c2c24a;
+}
+
+.all-rooms span a{
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.all-rooms span a:hover{
+    color: rgba(0, 0, 0, 0.759);
+}
+
+.all-rooms span img{
+    width: 400px;
+    height: 200px;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+.all-rooms span img:hover{
+    transform: rotate(1deg);
+}
+
+/* End Rooms */
+
+/* Start Bookings */
+.all-bookings{
+    margin-top: 30px;
+}
+
+@media(max-width: 767px){
+    .all-bookings span{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.all-bookings span span{
+    background-color: transparent;
+    justify-content: center;
+    gap: 10px;
+}
+
+.all-bookings span span:hover{
+    background-color: transparent;
+}
+
+.all-bookings span.user{
+    align-items: normal;
+}
+
+.all-bookings .status{
+    padding: 10px;
+    color: white;
+    transition: 0.3s;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.all-bookings .status.Active{
+    background-color: green;
+}
+
+.all-bookings .status.Active:hover{
+    background-color: rgba(0, 128, 0, 0.794);
+}
+.all-bookings .status.Upcoming{
+    background-color: yellow;
+    color: black;
+}
+
+.all-bookings .status.Upcoming:hover{
+    background-color: rgba(255, 255, 0, 0.794);
+}
+
+.all-bookings .status.Completed{
+    background-color: red;
+}
+
+.all-bookings .status.Completed:hover{
+    background-color: rgba(255, 0, 0, 0.801);
+}
+
+/* End Bookings */
+
+/* Start Add User */
+.all-users{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.add-user{
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-user input{
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background-color: #ddd;
+}
+
+.add-user .successMsg{
+    padding: 8px;
+    color: green;
+    font-size: 14px;
+    background-color: black;
+    border-radius: 6px;
+}
+
+.all-users .users{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.all-users .users span{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: #ddd;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+.all-users .users span:hover{
+    background-color: #ddddddb4;
+}
+
+.all-users .users span span,
+.all-users .users span span:hover{
+    background-color: transparent;
+}
+
+.all-users .users .delete{
+    color: red;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.all-users .users .delete:hover{
+    color: rgba(255, 0, 0, 0.723);
+}
+
+/* End Add User */

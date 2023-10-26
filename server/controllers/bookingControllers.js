@@ -3,6 +3,13 @@ const httpStatusText = require('../utils/httpStatusText');
 const appError = require('../utils/appError');
 const asyncWrapper = require('../middlewares/asyncWrapper');
 
+const getAllBookings = asyncWrapper(
+    async(req, res) => {
+        const bookings = await Booking.find();
+        res.status(200).json({status: httpStatusText.SUCCESS, data: bookings});
+    }
+)
+
 const bookRoom = asyncWrapper(
     async(req, res, next) => {
         const { firstName, email, roomCity, numberOfAdults, checkInDate, checkOutDate, numberOfDays, bookingAmount } = req.body;
@@ -44,6 +51,7 @@ const getClientId = asyncWrapper(
 )
 
 module.exports = {
+    getAllBookings,
     bookRoom,
     getMyBookings,
     getClientId,

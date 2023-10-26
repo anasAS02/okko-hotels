@@ -2,6 +2,7 @@ import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BOOKING, CLIENT_ID } from "../../Utils/Apis";
+import { config } from "../../Utils/Config";
 
 const PaypalCheckoutButton = (props) => {
     const [ clientId, setClientId ] = useState(null);
@@ -33,7 +34,7 @@ const PaypalCheckoutButton = (props) => {
     const handleApprove = async (orderId) => {
         setPaidFor(true);
         try{
-            await axios.post(BOOKING, booking.booking);
+            await axios.post(BOOKING, booking.booking, config);
             console.log(orderId);
         }catch(err){
             console.log(err)
@@ -41,10 +42,10 @@ const PaypalCheckoutButton = (props) => {
     }
 
     if(paidFor){
+        alert('🎉Your booking is complete!');
         setTimeout(() => {
-            alert('🎉Your booking is complete!');
+            window.location.pathname = '/MyBooking';
         }, 3000);
-        window.location.pathname = '/MyBooking';
     }
 
     if(error){

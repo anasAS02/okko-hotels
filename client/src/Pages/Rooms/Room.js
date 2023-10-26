@@ -7,7 +7,6 @@ import Footer from '../../Components/Footer/Footer';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getRoom } from '../../Utils/Rooms/GetRoom';
-import { useBooking } from '../../Utils/Rooms/UpdatesContext';
 import Cookies from 'js-cookie';
 import PaypalCheckoutButton from '../PayPal/PaypalCheckoutButton';
 

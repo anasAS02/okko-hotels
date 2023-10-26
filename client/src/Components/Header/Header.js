@@ -9,7 +9,7 @@ import { getRooms } from '../../Utils/Rooms/GetRooms';
 import { useAuth } from '../../Utils/Auth/AuthContext';
 import { handleLogout } from '../../Utils/Auth/Auth';
 import Cookies from 'js-cookie';
-import { useUpdates } from '../../Utils/Rooms/UpdatesContext';
+import { useUpdates } from '../../Utils/UpdatesContext';
 import { PacmanLoader } from 'react-spinners';
 
 export default function Header() {
@@ -17,6 +17,7 @@ const [isMenuActive, setIsMenuActive] = useState(false);
 const [isSearchActive, setIsSearchActive] = useState(false);
 const [rooms, setRooms] = useState([]);
 const token = Cookies.get('token');
+const role = Cookies.get('role');
 
 const {isLoggedIn, setIsLoggedIn} = useAuth();
 const {updates, setUpdates} = useUpdates();
@@ -71,7 +72,7 @@ useEffect(() => {
     window.removeEventListener("scroll", handleScroll);
   };
 
-}, [isLoggedIn, setIsLoggedIn]);
+}, [token]);
 
 const [logoWidth, setLogoWidth] = useState("35%");
 
@@ -88,11 +89,11 @@ return (
     <Search search={isSearchActive} />
     <div className={`list${isMenuActive ? " active" : ""}`}>
           <div className='list-con'>
-              <img id='logo' src={Logo}></img>
+              <img id='logo' src={Logo} alt='logo..'></img>
               <i className="fa-solid fa-rectangle-xmark close" onClick={deActiveMenu}></i>
               <div className='text'>
               {
-              updates == 'loading' ?
+              updates === 'loading' ?
               <PacmanLoader color="rgba(199, 192, 47, 1)" /> 
               :
               rooms.map((room) => <Link key={room._id} to={`/Room/${room.CityName}`}>{room.CityName}</Link>)
@@ -118,9 +119,10 @@ return (
       </div>
 
       <div className='header-buttons'>
+        {role === 'ADMIN' && <Link to='/Dashboard'>Dashboard</Link>}
           <Link to='/MyBooking'>My booking</Link>
           {isLoggedIn ? 
-          <button className='button' onClick={handleLogout}>Logout</button>
+            <button className='button' onClick={handleLogout}>Logout</button>
           :
           <Link to='/login' className='button'>Login</Link>
           }
