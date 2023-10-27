@@ -16,6 +16,12 @@
     margin-left: 100px;
 }
 
+@media(max-width: 767px){
+    .dates .booking-data{
+        margin-left: 0px;
+    }
+}
+
 .dates .book-btn{
     color: white;
     width: fit-content;

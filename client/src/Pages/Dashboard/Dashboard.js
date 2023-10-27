@@ -142,6 +142,12 @@ export default function Dashboard(){
         return acc;
     }, 0);
 
+    // console.log('ActiveBookings', getStatus('2023-10-20', '2023-11-01'))
+    // console.log('UpcomingBookings', getStatus('2023-10-31', '2023-11-01'))
+    // console.log('CompletedBookings', getStatus('2023-10-21', '2023-10-23'))
+    console.log('ActiveBookings', ActiveBookings)
+    console.log('UpcomingBookings', UpcomingBookings)
+    console.log('CompletedBookings', CompletedBookings)
     return(
         role === 'ADMIN' &&
         <div className='dashboard'>
