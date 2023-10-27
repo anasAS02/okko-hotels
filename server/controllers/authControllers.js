@@ -64,6 +64,11 @@ const login = asyncWrapper(
 
         const matchPassword = await bcrypt.compare(password, user.password);
 
+        if(!matchPassword){
+            const error = appError.create('something is wrong', 401, httpStatusText.ERROR);
+            return next(error);
+        }
+
         if(user && matchPassword){
             const firstName = user.firstName;
             const email = user.email;
