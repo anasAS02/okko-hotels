@@ -15,10 +15,11 @@ const [ bookings, setBookings ] = useState([]);
 useEffect(() => {
     myBookings(email).then((data) => setBookings(data));
 }, [bookings, setBookings])
+
 return(
     <>
     <Header />
-    {bookings.length < 1 ? <h2 className='booking-h2'>You have no reservations.</h2>
+    {bookings && bookings.length < 1 ? <h2 className='booking-h2'>You have no reservations.</h2>
     :
     <div className='booking-container'>
         <Link to='/' style={{color: 'black'}}>Go back</Link>
