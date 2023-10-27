@@ -73,3 +73,7 @@
 .status.Completed{
     background-color: red;
 }
+
+.d-none{
+    display: none;
+}

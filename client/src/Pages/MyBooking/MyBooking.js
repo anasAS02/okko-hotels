@@ -22,7 +22,7 @@ return(
     {bookings && bookings.length < 1 ? <h2 className='booking-h2'>You have no reservations.</h2>
     :
     <div className='booking-container'>
-        <Link to='/' style={{color: 'black'}}>Go back</Link>
+        <Link to='/' className={!isLoggedIn && 'd-none'} style={{color: 'black'}}>Go back</Link>
         {isLoggedIn ? 
         <div className='booking-table'>
         { bookings && bookings.length > 0 && bookings.map((booking) => (
