@@ -51,6 +51,7 @@ return(
                     <i className="fab fa-pinterest-p"></i>
                 </Link>
             </div>
+            <p className='copyright'>Copyrights reserved to <span>Anas</span> - 2023&copy;</p>
         </span>
         <span className='links'>
             <p>OUR HOTELS</p>

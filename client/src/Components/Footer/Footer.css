@@ -39,6 +39,14 @@
     color: white;
 }
 
+.copyright{
+    margin-top: 12px;
+}
+
+.copyright span{
+    color: red;
+}
+
 .footer .head .logo{
     display: flex;
     flex-direction: column;
