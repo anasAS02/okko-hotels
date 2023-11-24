@@ -9,18 +9,20 @@ import { Link, useParams } from 'react-router-dom';
 import { getRoom } from '../../Utils/Rooms/GetRoom';
 import Cookies from 'js-cookie';
 import PaypalCheckoutButton from '../PayPal/PaypalCheckoutButton';
+import { RiseLoader } from 'react-spinners';
 
 export default function Room(){
 
 const { CityName } = useParams();
 const[room, setRoom] = useState([]);
 const[booking, setBooking] = useState([]);
+const[isLoading, setIsLoading] = useState(true);
 const firstName = Cookies.get('firstName');
 const email = Cookies.get('email');
 
 useEffect(() => {
     getRoom(CityName)
-    .then((data) => setRoom(data.data[0]));
+    .then((data) => {setRoom(data.data[0]); setIsLoading(false)});
 }, [CityName])
 
 const getTodayDate = () => {
@@ -81,6 +83,11 @@ const bookingDetails = {
 };
 
 return(
+    isLoading ?
+    <div style={{position: 'absolute', left: '50%', top: '50%'}}>
+        <RiseLoader color="#36d7b7" />
+    </div>
+    :
     <div className='room'>
         <Header />
         <Slider imgOne={room.imgOne} imgTwo={room.imgTwo} imgThree={room.imgThree}/>
