@@ -22,7 +22,6 @@ const firstName = Cookies.get('firstName');
 const email = Cookies.get('email');
 const {isLoggedIn} = useAuth();
 
-
 useEffect(() => {
     getRoom(CityName)
     .then((data) => {setRoom(data.data[0]); setIsLoading(false)});
@@ -115,13 +114,13 @@ return(
                         <i className="fa-solid fa-plus" onClick={increaseAdult}></i>
                     </span>
                 </div>
-                {isLoggedIn ? <button className='book-btn' onClick={() => {setBooking(bookingDetails); setCheckout(true);}}>Book</button> : <Link to='/login' className='book-btn'>Book</Link>}
+                <button className='book-btn' onClick={() => isLoggedIn ? (setBooking(bookingDetails), setCheckout(true)) : window.location.pathname = '/login'}>Book</button>
             </div>
         }
         </div>
         <div className='title'>
             <h3>OKKO Hotels {room.CityName} Centre</h3>
-            <img src={Stars}></img>
+            <img src={Stars} alt='...'></img>
             <p>four Stars and no clouds</p>
         </div>
         <div className='discover'>
