@@ -112,7 +112,7 @@ return(
                         <i className="fa-solid fa-plus" onClick={increaseAdult}></i>
                     </span>
                 </div>
-                <button className='book-btn' onClick={() => {setBooking(bookingDetails); setCheckout(true);}}>Book</button>
+                {isLoading ? <button className='book-btn' onClick={() => {setBooking(bookingDetails); setCheckout(true);}}>Book</button> : <Link to='/login' className='book-btn'>Book</Link>}
             </div>
         }
         </div>
