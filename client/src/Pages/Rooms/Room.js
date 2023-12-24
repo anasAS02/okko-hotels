@@ -10,6 +10,7 @@ import { getRoom } from '../../Utils/Rooms/GetRoom';
 import Cookies from 'js-cookie';
 import PaypalCheckoutButton from '../PayPal/PaypalCheckoutButton';
 import { RiseLoader } from 'react-spinners';
+import { useAuth } from '../../Utils/Auth/AuthContext';
 
 export default function Room(){
 
@@ -19,6 +20,8 @@ const[booking, setBooking] = useState([]);
 const[isLoading, setIsLoading] = useState(true);
 const firstName = Cookies.get('firstName');
 const email = Cookies.get('email');
+const {isLoggedIn} = useAuth();
+
 
 useEffect(() => {
     getRoom(CityName)
@@ -112,7 +115,7 @@ return(
                         <i className="fa-solid fa-plus" onClick={increaseAdult}></i>
                     </span>
                 </div>
-                {isLoading ? <button className='book-btn' onClick={() => {setBooking(bookingDetails); setCheckout(true);}}>Book</button> : <Link to='/login' className='book-btn'>Book</Link>}
+                {isLoggedIn ? <button className='book-btn' onClick={() => {setBooking(bookingDetails); setCheckout(true);}}>Book</button> : <Link to='/login' className='book-btn'>Book</Link>}
             </div>
         }
         </div>
