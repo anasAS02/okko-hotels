@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://okko-hotels-production.up.railway.app/okko/';
+export const BASE_URL = 'https://okko.onrender.com/okko/';
 
 export const GET_ROOMS = `${BASE_URL}rooms/`;
 export const GET_ROOM = `${BASE_URL}rooms/`;
