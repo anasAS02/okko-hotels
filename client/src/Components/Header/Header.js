@@ -76,11 +76,6 @@ useEffect(() => {
 
 }, [token]);
 
-useEffect(() => {
-  alert("Please note: Data may take a few seconds to load due to server limitations.");
-}, [])
-
-
 const [logoWidth, setLogoWidth] = useState("35%");
 
 const handleScroll = () => {
