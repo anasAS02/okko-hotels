@@ -17,6 +17,10 @@
 }
 
 @media(max-width: 767px){
+    .con{
+        margin-top: 90px;
+    }
+    
     .dates .booking-data{
         margin-left: 0px;
     }
